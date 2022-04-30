@@ -1,28 +1,25 @@
 <?php
 if (isset($_POST["submit"])) {
-  $uid = $_POST["uid"];
-  $email = $_POST["email"];
-  $first_name = $_POST["first_name"];
-  $last_name = $_POST["last_name"];
-  $pwd = $_POST["pwd"];
-  $pwdRepeat = $_POST["pwdRepeat"];
-  $radio_type = $_POST['radio_type'];
-  if($radio_type == "Profesor"){
-    $user_type = "profesor";
-  }
-  else if($radio_type == "Student")
-  {
-    $user_type = "student";
-  }
+    $uid = $_POST["uid"];
+    $email = $_POST["email"];
+    $first_name = $_POST["first_name"];
+    $last_name = $_POST["last_name"];
+    $pwd = $_POST["pwd"];
+    $pwdRepeat = $_POST["pwdRepeat"];
+    $radio_type = $_POST['radio_type'];
+    if ($radio_type == "Profesor") {
+        $user_type = "profesor";
+    } else if ($radio_type == "Student") {
+        $user_type = "student";
+    }
 
+    include "../classes/dbh.classes.php";
+    include "../classes/singup.classes.php";
+    include "../classes/singupContr.classes.php";
 
-  include "../classes/dbh.classes.php";
-  include "../classes/singup.classes.php";
-  include "../classes/singupContr.classes.php";
+    $singup = new SingupContr($uid, $email, $first_name, $last_name, $pwd, $pwdRepeat, $user_type);
 
-  $singup = new SingupContr($uid, $email, $first_name, $last_name, $pwd, $pwdRepeat,$user_type);
+    $singup->singupUser();
 
-  $singup->singupUser();
-
-  // header('location: ../index.php?error=none');
+    header('location: ../pages/home.php?error=none');
 }

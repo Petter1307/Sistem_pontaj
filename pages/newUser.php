@@ -38,7 +38,7 @@ if ($_SESSION['user_type'] == "nimda") {
             </nav>
         </div>
         <div id="singup_wrapper">
-            <form action="includes/singup.inc.php" method="post">
+            <form action="../includes/singup.inc.php" method="post">
                 <input type="text" name="uid" placeholder="Username"><br>
                 <input type="text" name="email" placeholder="Email"><br>
                 <input type="text" name="first_name" placeholder="Prenume"><br>
@@ -50,9 +50,15 @@ if ($_SESSION['user_type'] == "nimda") {
                 <input type="radio" name="radio_type" value="Student" checked>
                 <label for="student">Student</label><br>
                 <br>
-                <button type="submit" name="submit">Sing Up</button>
+                <button type="submit" name="submit">Creare</button>
             </form>
-
+            <?php
+if (isset($_SESSION['error'])) {
+    $error = $_SESSION['error'];
+    $_SESSION['error'] = null;
+    echo $error;
+}
+?>
         </div>
     </div>
 </body>

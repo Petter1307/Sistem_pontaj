@@ -22,13 +22,12 @@ class SingupContr extends Singup
     }
     private function emptyInput()
     {
-        $result = null;
-        if (empty($this->uid) || empty($this->emai) || empty($this->first_name) || empty($this->last_name) || empty($this->pwd) || empty($this->pwdRepeat)) {
-            $result = false;
+        if (empty($this->uid) || empty($this->email) || empty($this->first_name) || empty($this->last_name) || empty($this->pwd) || empty($this->pwdRepeat)) {
+            return false;
         } else {
-            $result = true;
+            return true;
         }
-        return $result;
+
     }
     private function invalidUid()
     {
@@ -87,38 +86,38 @@ class SingupContr extends Singup
         if ($this->emptyInput() == false) {
             $error = "emtyInput";
             $_SESSION['error'] = $error;
-            header("location:../index.php");
+            header("location:../pages/newUser.php");
             exit();
         }
         // Why not empty input ?
         if ($this->invalidUid() == false) {
             $error = "invalidUid";
             $_SESSION['error'] = $error;
-            header("location:../index.php");
+            header("location:../pages/newUser.php");
             exit();
         }
         if ($this->invalidEmail() == false) {
-            $error = "invalidEmaildsa";
+            $error = "invalidEmail";
             $_SESSION['error'] = $error;
-            header("location:../index.php");
+            header("location:../pages/newUser.php");
             exit();
         }
         if ($this->pwdMatch() == false) {
             $error = "pwdDONTmathc";
             $_SESSION['error'] = $error;
-            header("location:../index.php");
+            header("location:../pages/newUser.php");
             exit();
         }
         if ($this->uidisTaken() == false) {
             $error = "UidisTaken";
             $_SESSION['error'] = $error;
-            header("location:../index.php");
+            header("location:../pages/newUser.php");
             exit();
         }
         if ($this->invalidType() == false) {
             $error = "invalidType";
             $_SESSION['error'] = $error;
-            header("location:../index.php");
+            header("location:../pages/newUser.php");
             exit();
         }
         $this->setUser($this->uid, $this->pwd, $this->email, $this->first_name, $this->last_name, $this->user_type);

@@ -48,6 +48,10 @@ html{
     padding: 15px 25px 15px 25px;
     border-radius: 15px;
 }
+#wrapper{
+    margin: 0 auto;
+    max-width: 95%;
+}
 #menu
 {
     display: flex;
