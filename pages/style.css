@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+}
 #page_wrapper{
     width: 60%;
     margin: 10% auto;
@@ -44,4 +47,35 @@
     background-color: #312E92;
     padding: 15px 25px 15px 25px;
     border-radius: 15px;
+}
+#menu
+{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background-color: #312E92;
+    border-radius: 14px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+#nav_wrapper{
+    min-width: 90%;
+    margin:0 auto;
+    
+}
+#menu a{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+
+}
+#menu_wrapper{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+#uab_small{
+    max-height: 180px;
+    padding-right: 50px;
 }
