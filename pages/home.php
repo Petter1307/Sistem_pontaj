@@ -25,11 +25,22 @@ if (!isset($_SESSION['id'])) {
             <img id="uab_small" src="../img/sigla_uab_small.png" alt="UAB small icon" />
             <nav id="nav_wrapper">
                 <ul id="menu">
-                    <li><a href="home.php">Prezenti</a></li>
-                    <li><a href="home.php">Istoric prezente</a></li>
+                    <?php
+if ($_SESSION['user_type'] == 'profesor' || $_SESSION['user_type'] == 'nimda') {
+    echo "<li><a href='home.php'>Prezenti</a></li>";
+    echo "<li><a href='home.php'>Istoric prezente</a></li>";
+}
+?>
+
+
                     <?php
 if ($_SESSION['user_type'] == "nimda") {
     echo "<li><a href='newUser.php'>Creare utilizatori</a></li>";
+}
+?>
+                    <?php
+if ($_SESSION['user_type'] == 'student') {
+    echo "<li><a href='home.php'>Prezente</a></li>";
 }
 ?>
                     <li><a href="home.php">Profil</a></li>
