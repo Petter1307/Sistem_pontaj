@@ -83,6 +83,11 @@ class SingupContr extends Singup
     public function singupUser()
     {
         session_start();
+        if (!isset($_SESSION['id']) || $_SESSION['user_type'] != 'nimda') {
+            header("location:../includes/logout.inc.php");
+            header("location:../index.php");
+            exit();
+        }
         if ($this->emptyInput() == false) {
             $error = "emtyInput";
             $_SESSION['error'] = $error;

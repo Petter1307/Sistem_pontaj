@@ -83,6 +83,28 @@ html{
     max-height: 180px;
     padding-right: 50px;
 }
-#singup_wrapper{
+#create_form{
     margin:0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 20%;
+    align-items: center;
+}
+.input{
+    background-color: lightgrey;
+    border: 2px black solid;
+    border-radius: 15px;
+    padding: 10px 15px 10px 15px;
+    margin-bottom: 10px;
+}
+#create_button{
+    padding: 5px 10px 5px 10px;
+    background-color: #312E92;
+    color: white;
+    border: 2px black solid;
+    border-radius: 15px;
+}
+#create_button:hover{
+    background-color: white;
+    color: black;
 }

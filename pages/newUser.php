@@ -38,19 +38,17 @@ if ($_SESSION['user_type'] == "nimda") {
             </nav>
         </div>
         <div id="singup_wrapper">
-            <form action="../includes/singup.inc.php" method="post">
-                <input type="text" name="uid" placeholder="Username"><br>
-                <input type="text" name="email" placeholder="Email"><br>
-                <input type="text" name="first_name" placeholder="Prenume"><br>
-                <input type="text" name="last_name" placeholder="Name"><br>
-                <input type="password" name="pwd" placeholder="Parola"><br>
-                <input type="password" name="pwdRepeat" placeholder="Repeta parola"><br>
-                <input type="radio" name="radio_type" value="Profesor">
-                <label for="profesor">Profesor</label><br>
-                <input type="radio" name="radio_type" value="Student" checked>
-                <label for="student">Student</label><br>
+            <form action="../includes/singup.inc.php" method="post" id="create_form">
+                <input type="text" name="uid" placeholder="Username" class="input"><br>
+                <input type="text" name="email" placeholder="Email" class="input"><br>
+                <input type="text" name="first_name" placeholder="Prenume" class="input"><br>
+                <input type="text" name="last_name" placeholder="Name" class="input"><br>
+                <input type="password" name="pwd" placeholder="Parola" class="input"><br>
+                <input type="password" name="pwdRepeat" placeholder="Repeta parola" class="input"><br>
+                <label for="profesor"><input type="radio" name="radio_type" value="Profesor">Profesor</label><br>
+                <label for="student"><input type="radio" name="radio_type" value="Student" checked>Student</label><br>
                 <br>
-                <button type="submit" name="submit">Creare</button>
+                <button type="submit" name="submit" id="create_button">Creare</button>
             </form>
             <?php
 if (isset($_SESSION['error'])) {
