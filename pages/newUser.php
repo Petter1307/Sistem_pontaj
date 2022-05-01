@@ -21,22 +21,9 @@ if (!isset($_SESSION['id']) or $_SESSION['user_type'] != 'nimda') {
 
 <body>
     <div id="wrapper">
-        <div id="menu_wrapper">
-            <img id="uab_small" src="../img/sigla_uab_small.png" alt="UAB small icon" />
-            <nav id="nav_wrapper">
-                <ul id="menu">
-                    <li><a href="home.php">Prezenti</a></li>
-                    <li><a href="home.php">Istoric prezente</a></li>
-                    <?php
-if ($_SESSION['user_type'] == "nimda") {
-    echo "<li><a href='newUser.php'>Creare utilizatori</a></li>";
-}
+        <?php
+include "../templates/menu_simple.php";
 ?>
-                    <li><a href="home.php">Profil</a></li>
-                    <li><a href="../includes/logout.inc.php">Logout</a></li>
-                </ul>
-            </nav>
-        </div>
         <div id="singup_wrapper">
             <form action="../includes/singup.inc.php" method="post" id="create_form">
                 <input type="text" name="uid" placeholder="Username" class="input"><br>
