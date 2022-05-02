@@ -15,7 +15,9 @@ if (!isset($_SESSION['id']) or $_SESSION['user_type'] != 'nimda') {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../style.css" />
+    <?php
+include "../templates/scrtipts.php";
+?>
     <title>Document</title>
 </head>
 
