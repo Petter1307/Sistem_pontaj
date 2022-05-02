@@ -15,9 +15,9 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../style.css" />
-    <script src="https://kit.fontawesome.com/61894d4851.js" crossorigin="anonymous"></script>
-    <script src="../dropmenu.js"></script>
+    <?php
+include "../templates/scrtipts.php";
+?>
     <title>Document</title>
 </head>
 

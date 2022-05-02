@@ -26,6 +26,9 @@ include "../templates/scrtipts.php";
         <?php
 include "../templates/menu_simple.php";
 ?>
+        <div class="mobile_page_title">
+            <p>Creare utilizatori</p>
+        </div>
         <div id="singup_wrapper">
             <form action="../includes/singup.inc.php" method="post" id="create_form">
                 <input type="text" name="uid" placeholder="Username" class="input"><br>
