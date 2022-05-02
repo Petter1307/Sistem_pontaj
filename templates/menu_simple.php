@@ -36,7 +36,7 @@ if ($_SESSION['user_type'] == 'student') {
             <ul id="menu">
                 <?php
 if ($_SESSION['user_type'] == 'profesor' || $_SESSION['user_type'] == 'nimda') {
-    echo "<li><a href='home.php'>Prezenti</a></li>";
+    echo "<li><a href='prezenti.php'>Prezenti</a></li>";
     echo "<li><a href='home.php'>Istoric prezente</a></li>";
 }
 ?>
