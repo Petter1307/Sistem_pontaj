@@ -25,7 +25,12 @@ include "../templates/scrtipts.php";
         <?php
 include "../templates/menu_simple.php";
 ?>
-
+        <div class="mobile_page_title">
+            <p>Prezenti</p>
+        </div>
+        <div id="search_prezenti_form">
+            <form action="" method="post"></form>
+        </div>
     </div>
 
 </body>

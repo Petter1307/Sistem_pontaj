@@ -10,7 +10,7 @@
                 <div class="dropdown_content" id="myDropdown">
                     <?php
 if ($_SESSION['user_type'] == 'profesor' || $_SESSION['user_type'] == 'nimda') {
-    echo "<a href='home.php'>Prezenti</a>";
+    echo "<a href='prezenti.php'>Prezenti</a>";
     echo "<a href='home.php'>Istoric prezente</a>";
 }
 ?>

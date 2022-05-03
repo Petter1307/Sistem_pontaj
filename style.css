@@ -165,9 +165,15 @@ html{
       .dropdown_content a:hover {background-color: #ddd}
       .showm {display:flex;}
       .mobile_page_title{
+          max-width: 80%;
           display: block;
           margin: 10px auto;
           text-align: center;
+          background-color: #312E92;
+          border-radius: 10px;
+          color: white;
+          padding-top: 1px;
+          padding-bottom: 1px;
       }
 
 }
