@@ -29,7 +29,11 @@ include "../templates/menu_simple.php";
             <p>Prezenti</p>
         </div>
         <div id="search_prezenti_form">
-            <form action="" method="post"></form>
+            <form action="../includes/profesor.inc.php" method="post">
+                <label for="id_sala">Id Sala</label>
+                <input type="text" name="id_sala">
+                <input type="submit" name="submit" value="submit">
+            </form>
         </div>
     </div>
 

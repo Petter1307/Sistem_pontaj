@@ -26,7 +26,7 @@ if ($_SESSION['user_type'] == 'student') {
     echo "<a href='home.php'>Prezente</a>";
 }
 ?>
-                    <a href="home.php">Profil</a>
+                    <a href="profil.php">Profil</a>
                     <a href="../includes/logout.inc.php">Logout</a>
                 </div>
             </div>
@@ -52,7 +52,7 @@ if ($_SESSION['user_type'] == 'student') {
     echo "<li><a href='home.php'>Prezente</a></li>";
 }
 ?>
-                <li><a href="home.php">Profil</a></li>
+                <li><a href="profil.php">Profil</a></li>
 
                 <li><a href="../includes/logout.inc.php">Logout</a></li>
             </ul>
