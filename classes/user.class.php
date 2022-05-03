@@ -1,5 +1,5 @@
 <?php
-class User extends Login
+class User extends Dbh
 {
     private $id;
     private $first_name;
@@ -35,14 +35,14 @@ class User extends Login
             exit();
         }
         $tmp_user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $this->id = $tmp_user['id'];
-        $this->first_name = $tmp_user['first_name'];
-        $this->last_name = $tmp_user['last_name'];
-        $this->email = $tmp_user['email'];
-        $this->user_type = $tmp_user['user_type'];
-        $this->id_card = $tmp_user['id_card'];
-        $this->creation_time = $tmp_user['user_creation_time'];
-
+        $this->id = $tmp_user[0]['id'];
+        $this->first_name = $tmp_user[0]['first_name'];
+        $this->last_name = $tmp_user[0]['last_name'];
+        $this->email = $tmp_user[0]['email'];
+        $this->user_type = $tmp_user[0]['user_type'];
+        $this->id_card = $tmp_user[0]['id_card'];
+        $this->creation_time = $tmp_user[0]['user_creation_time'];
+        $stmt = null;
     }
 
     public function getUserId()

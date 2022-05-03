@@ -6,6 +6,11 @@ if (!isset($_SESSION['id'])) {
     header("location:../index.php");
 }
 
+include "../includes/user.inc.php";
+
+$test = "WTF IS THIS SHIT GOING ON";
+
+$user = new User($_SESSION['id']);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +31,20 @@ include "../templates/scrtipts.php"
         <?php
 include "../templates/menu_simple.php";
 ?>
-
+        <div id="profile">
+            <p>
+                <?php
+echo $test; ?>
+            </p>
+            <p><?php
+echo $user->getUserId();
+?></p>
+            <p><?php
+echo $user->getUserEmail();
+?></p>
+            <p></p>
+            <p></p>
+        </div>
 
 
     </div>
