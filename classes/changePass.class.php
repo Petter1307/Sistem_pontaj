@@ -4,7 +4,7 @@ class NewPass extends Dbh
 
     protected function getCurrentPassHash($id)
     {
-        $stmt = $this->connect()->prepare('SELECT passowrd from user where id=?');
+        $stmt = $this->connect()->prepare('SELECT password from user where id=?');
         if (!$stmt->execute(array($id))) {
             $stmt = null;
             return null;

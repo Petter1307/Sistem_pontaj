@@ -8,9 +8,9 @@ class NewPassContr extends NewPass
     public function __construct($id, $old, $new, $repeat)
     {
         $this->id = $id;
-        $oldPass = $old;
-        $newPass = $new;
-        $newPassRepeated = $repeat;
+        $this->oldPass = $old;
+        $this->newPass = $new;
+        $this->newPassRepeated = $repeat;
     }
     private function emptyInput()
     {
@@ -22,7 +22,7 @@ class NewPassContr extends NewPass
     }
     private function pwdMatch()
     {
-        if ($this->newPass !== $this->newPassRepeated) {
+        if ($this->newPass != $this->newPassRepeated) {
             return false;
         } else {
             return true;
@@ -31,7 +31,7 @@ class NewPassContr extends NewPass
     private function verifyOldpass()
     {
         $old = $this->getCurrentPassHash($this->id);
-        $checkPwd = password_verify($this->newPass, $old);
+        $checkPwd = password_verify($this->oldPass, $old);
         if ($checkPwd == false) {
             return false;
         } else if ($checkPwd == true) {
@@ -41,9 +41,8 @@ class NewPassContr extends NewPass
 
     public function changePwd()
     {
-        session_start();
         if ($this->emptyInput() == false) {
-            $error = "pwddontmatch";
+            $error = "emptyinput";
             $_SESSION['error'] = $error;
             header('location:../pages/profil.php');
             exit();
@@ -55,7 +54,7 @@ class NewPassContr extends NewPass
             exit();
         }
         if ($this->verifyOldpass() == false) {
-            $error = "pwddontmatch";
+            $error = "oldNotGood";
             $_SESSION['error'] = $error;
             header('location:../pages/profil.php');
             exit();

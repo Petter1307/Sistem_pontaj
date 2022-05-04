@@ -12,7 +12,6 @@ if (isset($_POST["submit"])) {
     } else if ($radio_type == "Student") {
         $user_type = "student";
     }
-
     include "../classes/dbh.classes.php";
     include "../classes/singup.classes.php";
     include "../classes/singupContr.classes.php";
