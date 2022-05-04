@@ -115,6 +115,14 @@ html{
 .mobile_page_title{
     display: none;
 }
+#profile{
+    border: 2px black solid;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
 @media screen and (max-width:600px) {
 
     #desktop_menu{

@@ -8,8 +8,6 @@ if (!isset($_SESSION['id'])) {
 
 include "../includes/user.inc.php";
 
-$test = "WTF IS THIS SHIT GOING ON";
-
 $user = new User($_SESSION['id']);
 ?>
 
@@ -34,7 +32,8 @@ include "../templates/menu_simple.php";
         <div id="profile">
             <p>
                 <?php
-echo $test; ?>
+echo $user->getUserFirst() . " " . $user->getUserLast();
+?>
             </p>
             <p><?php
 echo $user->getUserId();
@@ -42,11 +41,21 @@ echo $user->getUserId();
             <p><?php
 echo $user->getUserEmail();
 ?></p>
-            <p></p>
-            <p></p>
+            <p><?php
+if ($user->getUserType() == "nimda") {
+    echo "Boss de boss";
+} else {
+    echo $user->getUserType();
+}
+
+?></p>
+            <p>
+                <?php
+echo $user->getUserCreationTime();
+?>
+
+            </p>
         </div>
-
-
     </div>
 </body>
 
