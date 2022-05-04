@@ -22,9 +22,9 @@ class NewPass extends Dbh
     }
     protected function changePassword($id, $pwd)
     {
-        $stmt = $this->connect()->prepare('??');
+        $stmt = $this->connect()->prepare('UPDATE user SET password = ? where id= ?');
         $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
-        if (!$stmt->execute(array($id, $hashpwd))) {
+        if (!$stmt->execute(array($hashpwd, $id))) {
             $stmt = null;
             session_start();
             $error = "stmtfailed";
