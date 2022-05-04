@@ -56,6 +56,21 @@ echo $user->getUserCreationTime();
 
             </p>
         </div>
+        <div id="change_pass_form">
+            <form action="../includes/changePass.inc.php" method="post">
+                <input type="password" name="pwd" id="change_pwd">
+                <input type="password" name="newpwd" id="change_newPwd">
+                <input type="password" name="repeatpwd" id="change_newPwdRepeat">
+                <input type="submit" value="Submit" name="submit">
+            </form>
+            <?php
+if (isset($_SESSION['error'])) {
+    $error = $_SESSION['error'];
+    $_SESSION['error'] = null;
+    echo $error;
+}
+?>
+        </div>
     </div>
 </body>
 
