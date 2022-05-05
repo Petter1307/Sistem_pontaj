@@ -28,13 +28,18 @@ include "../templates/menu_simple.php";
         <div class="mobile_page_title">
             <p>Prezenti</p>
         </div>
-        <div id="search_prezenti_form">
+        <!-- <div id="search_prezenti_form">
             <form action="../includes/profesor.inc.php" method="post">
                 <label for="id_sala">Id Sala</label>
                 <input type="text" name="id_sala">
                 <input type="submit" name="submit" value="submit">
             </form>
+        </div> -->
+
+        <div id="work_in_progress">
+            <i class="fa-solid fa-person-digging fa-10x"></i>
         </div>
+
     </div>
 
 </body>

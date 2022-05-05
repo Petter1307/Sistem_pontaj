@@ -40,7 +40,7 @@ include "../templates/menu_simple.php";
                 <label for="profesor"><input type="radio" name="radio_type" value="Profesor">Profesor</label><br>
                 <label for="student"><input type="radio" name="radio_type" value="Student" checked>Student</label><br>
                 <br>
-                <button type="submit" name="submit" id="create_button">Creare</button>
+                <button type="submit" name="submit" class="create_button">Creare</button>
             </form>
             <?php
 if (isset($_SESSION['error'])) {

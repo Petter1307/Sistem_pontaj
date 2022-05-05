@@ -26,6 +26,11 @@ include "../templates/scrtipts.php";
         <?php
 include "../templates/menu_simple.php";
 ?>
+
+        <div id="work_in_progress">
+            <i class="fa-solid fa-person-digging fa-10x"></i>
+        </div>
+
     </div>
 </body>
 

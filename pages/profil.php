@@ -29,47 +29,68 @@ include "../templates/scrtipts.php"
         <?php
 include "../templates/menu_simple.php";
 ?>
-        <div id="profile">
-            <p>
-                <?php
-echo $user->getUserFirst() . " " . $user->getUserLast();
+        <div id="profile_wrapper">
+            <div id="profile">
+                <div class="profile_group">
+                    <p>First and last name:&nbsp</p>
+
+                    <p>
+                        <?php
+echo " " . $user->getUserFirst() . " " . $user->getUserLast();
 ?>
-            </p>
-            <p><?php
+                    </p>
+                </div>
+                <div class="profile_group">
+                    <p>User ID:&nbsp</p>
+                    <p><?php
 echo $user->getUserId();
 ?></p>
-            <p><?php
-echo $user->getUserEmail();
-?></p>
-            <p><?php
+                </div>
+
+                <div class="profile_group">
+                    <p>User type:&nbsp</p>
+                    <p><?php
 if ($user->getUserType() == "nimda") {
-    echo "Boss de boss";
+    echo " " . "Boss de boss";
 } else {
     echo $user->getUserType();
 }
 
 ?></p>
-            <p>
-                <?php
+                </div>
+                <div class="profile_group">
+                    <p>Email:&nbsp</p>
+                    <p><?php
+echo $user->getUserEmail();
+?></p>
+                </div>
+                <div class="profile_group">
+                    <p>Registration Date:&nbsp</p>
+                    <p>
+                        <?php
 echo $user->getUserCreationTime();
 ?>
+                    </p>
+                </div>
 
-            </p>
-        </div>
-        <div id="change_pass_form">
-            <form action="../includes/changePass.inc.php" method="post">
-                <input type="password" name="pwd" id="change_pwd">
-                <input type="password" name="newpwd" id="change_newPwd">
-                <input type="password" name="repeatpwd" id="change_newPwdRepeat">
-                <input type="submit" value="Submit" name="submit">
-            </form>
-            <?php
+            </div>
+            <div id="change_pass_form">
+                <form action="../includes/changePass.inc.php" method="post" id="change_form_wrapper">
+                    <input type="password" name="pwd" id="change_pwd" placeholder="Current password" class="input">
+                    <input type="password" name="newpwd" id="change_newPwd" placeholder="New password" class="input">
+                    <input type="password" name="repeatpwd" id="change_newPwdRepeat" placeholder="Repeat new password"
+                        class="input">
+                    <input type="submit" value="Submit" name="submit" class="create_button">
+                </form>
+                <?php
 if (isset($_SESSION['error'])) {
     $error = $_SESSION['error'];
     $_SESSION['error'] = null;
     echo $error;
 }
 ?>
+            </div>
+
         </div>
     </div>
 </body>

@@ -62,8 +62,3 @@ class NewPassContr extends NewPass
         $this->changePassword($this->id, $this->newPass);
     }
 }
-// $stmt = null;
-// session_start();
-// $error = "pwddontmatch";
-// $_SESSION['error'] = $error;
-// header('location:../pages/profil.php');
