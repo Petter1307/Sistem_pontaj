@@ -21,7 +21,7 @@ $user = new User($_SESSION['id']);
     <?php
 include "../templates/scrtipts.php"
 ?>
-    <title>Document</title>
+    <title>Sistem pontaj</title>
 </head>
 
 <body>
@@ -51,7 +51,7 @@ echo $user->getUserId();
                     <p>User type:&nbsp</p>
                     <p><?php
 if ($user->getUserType() == "nimda") {
-    echo " " . "Boss de boss";
+    echo " " . "Admin";
 } else {
     echo $user->getUserType();
 }

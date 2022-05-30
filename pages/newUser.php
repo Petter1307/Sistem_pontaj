@@ -18,7 +18,7 @@ if (!isset($_SESSION['id']) or $_SESSION['user_type'] != 'nimda') {
     <?php
 include "../templates/scrtipts.php";
 ?>
-    <title>Document</title>
+    <title>Sistem pontaj</title>
 </head>
 
 <body>

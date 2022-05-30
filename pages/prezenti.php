@@ -17,7 +17,7 @@ if (!isset($_SESSION['id']) or !($_SESSION['user_type'] == 'profesor' or $_SESSI
     <?php
 include "../templates/scrtipts.php";
 ?>
-    <title>Document</title>
+    <title>Sistem pontaj</title>
 </head>
 
 <body>
@@ -28,17 +28,41 @@ include "../templates/menu_simple.php";
         <div class="mobile_page_title">
             <p>Prezenti</p>
         </div>
-        <!-- <div id="search_prezenti_form">
-            <form action="../includes/profesor.inc.php" method="post">
-                <label for="id_sala">Id Sala</label>
-                <input type="text" name="id_sala">
-                <input type="submit" name="submit" value="submit">
-            </form>
-        </div> -->
+        <form action="../includes/profesor.inc.php" method="post" id="form_select_studenti">
+            <label for="specializare">Specializare</label>
+            <select name="spec" id="specializare">
+                <option value="1">Informatica</option>
+                <option value="2">ECTS</option>
+                <option value="3">Drept</option>
+                <option value="4">Limbi</option>
+                <option value="5">Ortodox</option>
+            </select>
+            <label for="an_stud">An</label>
+            <select name="an_studii" id="an_stud">
+                <option value="1">I</option>
+                <option value="2">II</option>
+                <option value="3">III</option>
+                <option value="4">IV</option>
+                <option value="5">V</option>
+            </select>
+            <label for="nr_grup">Grupa</label>
+            <select name="nr_grupa" id="nr_grup">
+                <option value="1">Toate</option>
+                <option value="2">I</option>
+                <option value="3">II</option>
+                <option value="4">III</option>
+                <option value="5">IV</option>
+            </select>
+            <?php
+echo "<label for='lang'>Saptamana curenta:</label>";
+echo " <select name='saptamani' id='sapt' required='true'>";
+for ($i = 1; $i <= 14; $i++) {
+    echo "<option value=" . $i . ">Saptamana " . $i . "</option>";
+}
+?>
 
-        <div id="work_in_progress">
-            <i class="fa-solid fa-person-digging fa-10x"></i>
-        </div>
+            <input type="submit" name="submit" value="Optine lista">
+        </form>
 
     </div>
 
