@@ -1,5 +1,8 @@
 <?php
+session_start();
 if (isset($_POST['submit'])) {
-    $id_sala = $_POST['id_sala'];
-
+    $an = $_POST['an_studii'];
+    $spec = $_POST['spec'];
+    $grupa = $_POST['nr_grupa'];
+    $saptamana = $_POST['saptamani'];
 }

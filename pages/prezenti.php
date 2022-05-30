@@ -4,7 +4,8 @@ if (!isset($_SESSION['id']) or !($_SESSION['user_type'] == 'profesor' or $_SESSI
     header("location:../includes/logout.inc.php");
     header("location:../index.php");
 }
-
+$view = 0;
+$_SESSION['view'] = $view;
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +29,14 @@ include "../templates/menu_simple.php";
         <div class="mobile_page_title">
             <p>Prezenti</p>
         </div>
+        <?php
+if ($_SESSION['view'] == 0) {
+
+    ?>
+
         <form action="../includes/profesor.inc.php" method="post" id="form_select_studenti">
             <label for="specializare">Specializare</label>
-            <select name="spec" id="specializare">
+            <select name="spec" id="specializare" required='true'>
                 <option value="1">Informatica</option>
                 <option value="2">ECTS</option>
                 <option value="3">Drept</option>
@@ -38,7 +44,7 @@ include "../templates/menu_simple.php";
                 <option value="5">Ortodox</option>
             </select>
             <label for="an_stud">An</label>
-            <select name="an_studii" id="an_stud">
+            <select name="an_studii" id="an_stud" required='true'>
                 <option value="1">I</option>
                 <option value="2">II</option>
                 <option value="3">III</option>
@@ -46,7 +52,7 @@ include "../templates/menu_simple.php";
                 <option value="5">V</option>
             </select>
             <label for="nr_grup">Grupa</label>
-            <select name="nr_grupa" id="nr_grup">
+            <select name="nr_grupa" id="nr_grup" required='true'>
                 <option value="1">Toate</option>
                 <option value="2">I</option>
                 <option value="3">II</option>
@@ -55,14 +61,20 @@ include "../templates/menu_simple.php";
             </select>
             <?php
 echo "<label for='lang'>Saptamana curenta:</label>";
-echo " <select name='saptamani' id='sapt' required='true'>";
-for ($i = 1; $i <= 14; $i++) {
-    echo "<option value=" . $i . ">Saptamana " . $i . "</option>";
-}
-?>
+    echo " <select name='saptamani' id='sapt' required='true'>";
+    for ($i = 1; $i <= 14; $i++) {
+        echo "<option value=" . $i . ">Saptamana " . $i . "</option>";
+    }
+    ?>
 
             <input type="submit" name="submit" value="Optine lista">
         </form>
+        <?php
+} else {
+    echo "xd "; //TODO Echo HERE THE LIST OF ALL STUDENTS XDD 
+}
+?>
+
 
     </div>
 
