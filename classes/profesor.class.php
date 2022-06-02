@@ -32,7 +32,7 @@ class profesor extends User
         $_SESSION['view'] = 1;
 
     }
-    public function getOraIDFromDatabase()
+    protected function getOraIDFromDatabase()
     {
 
         $houdId = $this->connect()->prepare('select getHourID() as ora;');
@@ -51,12 +51,51 @@ class profesor extends User
 
         return $results[0]['id'];
     }
-    protected function getIdOcupare($an, $spec, $grupa, $ora, $disc)
+    protected function getIdOcupare($an, $spec, $grupa)
     {
-        //TODO THINK THE REST OF THIS FUNCTION
+        $ora = $this->getOraIDFromDatabase();
+        // if ($ora == 7) {
+        //     $error = "outOfWorkingHours";
+        //     $_SESSION['error'] = $error;
+        //     header('location:../pages/prezenti.php?error=outOfWorkingHours');
+        //     exit();
+        // }
+        $stmt = $this->connect()->prepare('Select id_ocupare as id from orar where id_ora = ? and id_an = ? and id_specializare = ? and id_grupa = ? and id_ziua = ?;');
+        if (!$stmt->execute(array($ora, $an, $spec, $grupa, date('w')))) {
+            $error = "getIdOcupareFailed";
+            $_SESSION['error'] = $error;
+            header('location:../pages/prezenti.php?error=getIdOcupareFailed');
+            exit();
+        }
+        if ($stmt->rowCount() == 0) {
+            return 'none';
+        }
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results[0]['id'];
     }
-    public function insertPRezenta($id_user, $id_ocupare)
+    public function insertPRezenta($id_student, $saptamana, $an, $spec, $grupa, $disc)
     {
-        //TODO FINISH the rest of this.
+        $id_ocupare = $this->getIdOcupare($an, $spec, $grupa, $disc);
+        if ($id_ocupare == 'none') {
+            $error = "insertPRezFailure";
+            $_SESSION['error'] = $error;
+            header('location:../pages/prezenti.php?error=insertPRezFailure');
+            exit();
+        }
+        $stmt = $this->connect()->prepare('INSERT into prezente(id_user,id_ora,id_saptamana) values (?,?,?)');
+        if (!$stmt->execute(array($id_student, $id_ocupare, $saptamana))) {
+            $error = "insertStmtPRezFailure";
+            $_SESSION['error'] = $error;
+            header('location:../pages/prezenti.php?error=insertStmtPRezFailure');
+            exit();
+        }
+        //TODO Make  a way to check for duplicates in the database and remove duplicates.
+        // maybe a trigger in the database.
+    }
+    public function testStuff()
+    {
+        $test = $this->getIdOcupare(1, 1, 1, 1);
+        echo $test;
+        // echo $this->insertPRezenta(1, 1, 1, 1, 1, 1);
     }
 }
