@@ -32,6 +32,25 @@ class profesor extends User
         $_SESSION['view'] = 1;
 
     }
+    public function getOraIDFromDatabase()
+    {
+
+        $houdId = $this->connect()->prepare('select getHourID() as ora;');
+        $houdId->execute();
+        $ora = $houdId->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmt = $this->connect()->prepare('call getOraID(?)');
+        if (!$stmt->execute(array($ora[0]['ora']))) {
+            $error = 'getOraIDFromDatabaseFailed';
+            $_SESSION['error'] = $error;
+            header('location:../pages/prezenti.php?error=getOraIDFromDatabaseFailed');
+            exit();
+        }
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results[0]['id'];
+    }
     protected function getIdOcupare($an, $spec, $grupa, $ora, $disc)
     {
         //TODO THINK THE REST OF THIS FUNCTION

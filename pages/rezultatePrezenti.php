@@ -39,6 +39,8 @@ if (isset($_POST['submit'])) {
     $prof = new profesor($_SESSION['id']);
 
     $prof->getStudentList($an, $grupa, $spec);
+
+    echo $prof->getOraIDFromDatabase();
 } else {
     header('location:prezenti.php');
 }
