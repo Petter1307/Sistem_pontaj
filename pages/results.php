@@ -40,8 +40,27 @@ if (isset($_POST['submit'])) {
 
     $prof->getStudentList($an, $grupa, $spec);
     // echo $prof->getIdOcupare(1, 1, 1, 1);
-    echo $prof->testStuff();
-
+    // echo $prof->testStuff();
+    // ($id_student, $saptamana, $an, $spec, $grupa, $disc)
+    if (isset($_GET['insert'])) {
+        $id_insert = $_GET['insert'];
+        if (isset($_GET['saptamana'])) {
+            $incSaptamana = $_GET['saptamana'];
+            if (isset($_GET['an'])) {
+                $incAn = $_GET['an'];
+                if (isset($_GET['spec'])) {
+                    $incSpec = $_GET['spec'];
+                    if (isset($_GET['grupa'])) {
+                        $incGrupa = $_GET['grupa'];
+                        if (isset($_GET['disc'])) {
+                            $incDisc = $_GET['disc'];
+                            $prof->insertPRezenta($id_insert, $incSaptamana, $incAn, $incSpec, $incGrupa, $incDisc);
+                        }
+                    }
+                }
+            }
+        }
+    }
 } else {
     header('location:prezenti.php');
 }
