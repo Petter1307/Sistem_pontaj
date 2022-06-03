@@ -27,7 +27,7 @@ include "../templates/menu_simple.php";
         <div class="mobile_page_title">
             <p>Prezenti</p>
         </div>
-        <form action="result.php" method="post" id="form_select_studenti">
+        <form action="results.php" method="post" id="form_select_studenti">
             <label for="specializare">Specializare</label>
             <select name="spec" id="specializare" required='true'>
                 <option value="1">Informatica</option>

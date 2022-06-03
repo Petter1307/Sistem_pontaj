@@ -39,9 +39,6 @@ if (isset($_POST['submit'])) {
     $prof = new profesor($_SESSION['id']);
 
     $prof->getStudentList($an, $grupa, $spec);
-    // echo $prof->getIdOcupare(1, 1, 1, 1);
-    // echo $prof->testStuff();
-    // ($id_student, $saptamana, $an, $spec, $grupa, $disc)
     if (isset($_GET['insert'])) {
         $id_insert = $_GET['insert'];
         if (isset($_GET['saptamana'])) {

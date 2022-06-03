@@ -27,7 +27,8 @@ class profesor extends User
         }
         $results = $stmt->fetchAll();
         foreach ($results as $result) {
-            echo $result['id'] . " " . $result['first'] . " " . $result['last'] . "</br>";
+            echo $result['id'] . " " . $result['first'] . " " . $result['last'];
+            echo "<a href = ''>Insert</a> </br>";
         }
         $_SESSION['view'] = 1;
 
