@@ -26,11 +26,12 @@ class profesor extends User
             exit(); // TODO Test this exit shiz
         }
         $results = $stmt->fetchAll();
-        foreach ($results as $result) {
-            echo $result['id'] . " " . $result['first'] . " " . $result['last'];
-            echo "<a href = ''>Insert</a> </br>";
-        }
+        // foreach ($results as $result) {
+        //     echo $result['id'] . " " . $result['first'] . " " . $result['last'];
+        //     echo "<a href = ''>Insert</a> </br>";
+        // }
         $_SESSION['view'] = 1;
+        return $results;
 
     }
     protected function getOraIDFromDatabase()
@@ -61,6 +62,7 @@ class profesor extends User
         //     header('location:../pages/prezenti.php?error=outOfWorkingHours');
         //     exit();
         // }
+        // TODO Uncomment the code above when you will have usable version.
         $stmt = $this->connect()->prepare('Select id_ocupare as id from orar where id_ora = ? and id_an = ? and id_specializare = ? and id_grupa = ? and id_ziua = ?;');
         if (!$stmt->execute(array($ora, $an, $spec, $grupa, date('w')))) {
             $error = "getIdOcupareFailed";

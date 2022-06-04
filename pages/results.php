@@ -39,24 +39,37 @@ if (isset($_POST['submit'])) {
     $prof = new profesor($_SESSION['id']);
 
     $prof->getStudentList($an, $grupa, $spec);
+    // if (isset($_GET['insert'])) {
+    //     $id_insert = $_GET['insert'];
+    //     if (isset($_GET['saptamana'])) {
+    //         $incSaptamana = $_GET['saptamana'];
+    //         if (isset($_GET['an'])) {
+    //             $incAn = $_GET['an'];
+    //             if (isset($_GET['spec'])) {
+    //                 $incSpec = $_GET['spec'];
+    //                 if (isset($_GET['grupa'])) {
+    //                     $incGrupa = $_GET['grupa'];
+    //                     if (isset($_GET['disc'])) {
+    //                         $incDisc = $_GET['disc'];
+    //                         $prof->insertPRezenta($id_insert, $incSaptamana, $incAn, $incSpec, $incGrupa, $incDisc);
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     if (isset($_GET['insert'])) {
-        $id_insert = $_GET['insert'];
-        if (isset($_GET['saptamana'])) {
-            $incSaptamana = $_GET['saptamana'];
-            if (isset($_GET['an'])) {
-                $incAn = $_GET['an'];
-                if (isset($_GET['spec'])) {
-                    $incSpec = $_GET['spec'];
-                    if (isset($_GET['grupa'])) {
-                        $incGrupa = $_GET['grupa'];
-                        if (isset($_GET['disc'])) {
-                            $incDisc = $_GET['disc'];
-                            $prof->insertPRezenta($id_insert, $incSaptamana, $incAn, $incSpec, $incGrupa, $incDisc);
-                        }
-                    }
-                }
-            }
-        }
+        $prof->insertPRezenta($id_insert, $saptamana, $an, $spec, $grupa, $incDisc);
+    }
+    $results = $prof->getStudentList($an, $grupa, $spec);
+    // echo var_dump($test);
+    // echo $test[0]['id'];
+    // echo "xXDD";
+    echo var_dump($results);
+    foreach ($results as $result) {
+
+        echo $result['first'] . " " . $result['last'] . "<a id = 'insert_a' href='results.php?insert=" . $result['id'] . "&saptamana=" . $saptamana . "&an=" . $an . "spec=" . $spec . "'>Insert</a>" . "</br>";
+
     }
 } else {
     header('location:prezenti.php');

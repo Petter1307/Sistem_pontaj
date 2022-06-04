@@ -11,5 +11,5 @@ if (isset($_POST['submit'])) {
 
     $prof = new profesor(1);
 
-    $prof->getStudentList($an, $grupa, $spec);
+
 }
