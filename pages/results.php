@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 
     $prof = new profesor($_SESSION['id']);
 
-    $prof->getStudentList($an, $grupa, $spec);
+    // $prof->getStudentList($an, $grupa, $spec);
     // if (isset($_GET['insert'])) {
     //     $id_insert = $_GET['insert'];
     //     if (isset($_GET['saptamana'])) {
@@ -58,8 +58,10 @@ if (isset($_POST['submit'])) {
     //         }
     //     }
     // }
+
+    //insertPRezenta($id_student, $saptamana, $an, $spec, $grupa)
     if (isset($_GET['insert'])) {
-        $prof->insertPRezenta($id_insert, $saptamana, $an, $spec, $grupa, $incDisc);
+        $prof->insertPRezenta($id_insert, $saptamana, $an, $spec, $grupa);
     }
     $results = $prof->getStudentList($an, $grupa, $spec);
     // echo var_dump($test);
@@ -67,13 +69,17 @@ if (isset($_POST['submit'])) {
     // echo "xXDD";
     echo var_dump($results);
     foreach ($results as $result) {
-
-        echo $result['first'] . " " . $result['last'] . "<a id = 'insert_a' href='results.php?insert=" . $result['id'] . "&saptamana=" . $saptamana . "&an=" . $an . "spec=" . $spec . "'>Insert</a>" . "</br>";
-
+        echo $result['first'] . " " . $result['last'] . "<a id = 'insert_a' href='results.php?insert=" . $result['id'] . "'>Insert</a>" . "</br>";
     }
-} else {
-    header('location:prezenti.php');
+    if (isset($_SESSION['error'])) {
+        $error = $_SESSION['error'];
+        $_SESSION['error'] = null;
+        echo "error from sesion: " . $error;
+    }
 }
+// } else {
+//     header('location:prezenti.php?error=postfailed');
+// }
 ?>
         </div>
     </div>

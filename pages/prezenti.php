@@ -58,6 +58,11 @@ echo " <select name='saptamani' id='sapt' required='true'>";
 for ($i = 1; $i <= 14; $i++) {
     echo "<option value=" . $i . ">Saptamana " . $i . "</option>";
 }
+if (isset($_SESSION['error'])) {
+    $error = $_SESSION['error'];
+    $_SESSION['error'] = null;
+    echo "error from sesion: " . $error;
+}
 ?>
 
             <input type="submit" name="submit" value="Optine lista">

@@ -76,9 +76,9 @@ class profesor extends User
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $results[0]['id'];
     }
-    public function insertPRezenta($id_student, $saptamana, $an, $spec, $grupa, $disc)
+    public function insertPRezenta($id_student, $saptamana, $an, $spec, $grupa)
     {
-        $id_ocupare = $this->getIdOcupare($an, $spec, $grupa, $disc);
+        $id_ocupare = $this->getIdOcupare($an, $spec, $grupa);
         if ($id_ocupare == 'none') {
             $error = "insertPRezFailure";
             $_SESSION['error'] = $error;
