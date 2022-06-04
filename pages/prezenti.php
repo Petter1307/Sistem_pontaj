@@ -27,34 +27,35 @@ include "../templates/menu_simple.php";
         <div class="mobile_page_title">
             <p>Prezenti</p>
         </div>
-        <form action="results.php" method="post" id="form_select_studenti">
-            <label for="specializare">Specializare</label>
-            <select name="spec" id="specializare" required='true'>
-                <option value="1">Informatica</option>
-                <option value="2">ECTS</option>
-                <option value="3">Drept</option>
-                <option value="4">Limbi</option>
-                <option value="5">Ortodox</option>
-            </select>
-            <label for="an_stud">An</label>
-            <select name="an_studii" id="an_stud" required='true'>
-                <option value="1">I</option>
-                <option value="2">II</option>
-                <option value="3">III</option>
-                <option value="4">IV</option>
-                <option value="5">V</option>
-            </select>
-            <label for="nr_grup">Grupa</label>
-            <select name="nr_grupa" id="nr_grup" required='true'>
-                <option value="1">Toate</option>
-                <option value="2">I</option>
-                <option value="3">II</option>
-                <option value="4">III</option>
-                <option value="5">IV</option>
-            </select>
-            <?php
-echo "<label for='lang'>Saptamana curenta:</label>";
-echo " <select name='saptamani' id='sapt' required='true'>";
+        <div class="prezentContainer">
+            <form action="results.php" method="post" id="form_select_studenti">
+                <label class='label_prezenta' for="specializare">Specializare</label>
+                <select class='select_prezenta' name="spec" id="specializare" required='true'>
+                    <option value="1">Informatica</option>
+                    <option value="2">ECTS</option>
+                    <option value="3">Drept</option>
+                    <option value="4">Limbi</option>
+                    <option value="5">Ortodox</option>
+                </select>
+                <label class='label_prezenta' for="an_stud">An</label>
+                <select class='select_prezenta' name="an_studii" id="an_stud" required='true'>
+                    <option value="1">I</option>
+                    <option value="2">II</option>
+                    <option value="3">III</option>
+                    <option value="4">IV</option>
+                    <option value="5">V</option>
+                </select>
+                <label class='label_prezenta' for="nr_grup">Grupa</label>
+                <select class='select_prezenta' name="nr_grupa" id="nr_grup" required='true'>
+                    <option value="1">Toate</option>
+                    <option value="2">I</option>
+                    <option value="3">II</option>
+                    <option value="4">III</option>
+                    <option value="5">IV</option>
+                </select>
+                <?php
+echo "<label class='label_prezenta' for='saptamani'>Saptamana curenta:</label>";
+echo " <select class='select_prezenta' name='saptamani' id='sapt' required='true'>";
 for ($i = 1; $i <= 14; $i++) {
     echo "<option value=" . $i . ">Saptamana " . $i . "</option>";
 }
@@ -64,9 +65,9 @@ if (isset($_SESSION['error'])) {
     echo "error from sesion: " . $error;
 }
 ?>
-
-            <input type="submit" name="submit" value="Optine lista">
-        </form>
+                <input type="submit" name="submit" class="create_button " value="Optine lista">
+            </form>
+        </div>
     </div>
 
 </body>

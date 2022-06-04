@@ -1,9 +1,10 @@
-html{
+html {
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
 
 }
-#page_wrapper{
+
+#page_wrapper {
     width: 60%;
     margin: 10% auto;
     display: flex;
@@ -13,19 +14,21 @@ html{
     align-content: center;
 }
 
-#login_form_wrapper{
+#login_form_wrapper {
     width: 40%;
     margin: 0 auto;
     display: flex;
     flex-flow: column nowrap;
 }
-#login_form{
+
+#login_form {
     padding-bottom: 20px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
 }
-.login_input{
+
+.login_input {
     background-color: lightgray;
     vertical-align: middle;
     text-align: center;
@@ -34,28 +37,32 @@ html{
     border-radius: 15px;
     padding: 20px 35px 20px 35px;
 }
-#forgot_password{
+
+#forgot_password {
     text-align: right;
 }
-.login_img{
-    width : 70%;
+
+.login_img {
+    width: 70%;
     height: auto;
     margin: 0 auto;
     display: flex;
 }
-#login_button{
+
+#login_button {
     color: white;
     border: 2px solid #312E92;
     background-color: #312E92;
     padding: 15px 25px 15px 25px;
     border-radius: 15px;
 }
-#wrapper{
+
+#wrapper {
     margin: 0 auto;
     max-width: 95%;
 }
-#menu
-{
+
+#menu {
     display: flex;
     justify-content: space-around;
     list-style: none;
@@ -64,35 +71,41 @@ html{
     padding-top: 30px;
     padding-bottom: 30px;
 }
-#desktop_menu{
+
+#desktop_menu {
     min-width: 90%;
-    margin:0 auto;
-    
+    margin: 0 auto;
+
 }
-#menu a{
+
+#menu a {
     text-decoration: none;
     text-align: center;
     color: white;
 
 }
-#header_wrapper{
+
+#header_wrapper {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
 }
-#header_img img{
+
+#header_img img {
     max-height: 180px;
     padding-right: 50px;
 }
-#create_form{
-    margin:0 auto;
+
+#create_form {
+    margin: 0 auto;
     display: flex;
     flex-flow: column nowrap;
     max-width: 20%;
     align-items: center;
 }
-.input{
+
+.input {
     background-color: lightgrey;
     border: 2px black solid;
     border-radius: 15px;
@@ -100,7 +113,8 @@ html{
     margin-bottom: 10px;
     font-family: 'Open Sans', sans-serif;
 }
-.create_button{
+
+.create_button {
     padding: 5px 10px 5px 10px;
     background-color: #312E92;
     color: white;
@@ -108,103 +122,186 @@ html{
     border-radius: 15px;
     font-family: 'Open Sans', sans-serif;
 }
-.create_button:hover{
+
+.create_button:hover {
     background-color: white;
     color: black;
 }
-#mobile_menu{
+
+#mobile_menu {
     display: none;
-    
+
 }
-.mobile_page_title{
+
+.mobile_page_title {
     display: none;
 }
-#profile{
+
+#profile {
     display: flex;
     flex-flow: column nowrap;
-    align-items:flex-start;
+    align-items: flex-start;
     margin: 0 auto;
     margin-top: 20px;
 }
-#profile_wrapper{
+
+#profile_wrapper {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
 }
-#change_form_wrapper{
+
+#change_form_wrapper {
     display: flex;
     flex-flow: column nowrap;
     padding-bottom: 10px;
 }
-.profile_group{
+
+.profile_group {
     display: flex;
     flex-flow: row nowrap;
 }
-#work_in_progress{
+
+#work_in_progress {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     color: #FFA500;
 }
+
+#form_select_studenti {
+    max-width: 20%;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+}
+
+.select_prezenta {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: larger;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.label_prezenta {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-size: larger;
+}
+
+table,
+th,
+td {
+    text-align: center;
+    width: 40%;
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+
+td {
+    font-size: x-large;
+}
+
+thead {
+    font-size: xx-large;
+}
+
+.result_table {
+    display: flex;
+    justify-content: center;
+
+}
+
+.linka {
+    color: #312E92;
+    text-decoration-line: underline;
+}
+
+.linkb {
+    color: red;
+    text-decoration-line: underline;
+}
+
 @media screen and (max-width:600px) {
 
-    #desktop_menu{
+    #desktop_menu {
         display: none;
     }
-    #header_wrapper{
+
+    #header_wrapper {
         flex-flow: row-reverse nowrap;
     }
-    #open_menu{
+
+    #open_menu {
         display: flex;
     }
-    #close_menu{
+
+    #close_menu {
         display: none;
     }
-    #header_img img{
+
+    #header_img img {
         padding-right: 5px;
     }
-    #mobile_menu{
+
+    #mobile_menu {
         display: flex;
         padding-right: 10px;
         flex-flow: column nowrap;
         max-width: 50%;
     }
-    #mobile_menu i
-    {
+
+    #mobile_menu i {
         max-width: 60%;
         margin-bottom: 10px;
     }
-    .dropdown{ 
+
+    .dropdown {
         position: absolute;
     }
+
     .dropdown_content {
         margin-top: 0.5em;
         display: none;
         margin-right: 100px;
         background-color: #f1f1f1;
         min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        max-height: 80%;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         flex-flow: column nowrap;
-      }
-      .dropdown_content a {
+    }
+
+    .dropdown_content a {
         color: black;
-        padding:60px 25px;
+        padding: 35px 25px;
         text-decoration: none;
         font-size: xx-large;
         display: block;
-      }
-      .dropdown_content a:hover {background-color: #ddd}
-      .showm {display:flex;}
-      .mobile_page_title{
-          max-width: 80%;
-          display: block;
-          margin: 10px auto;
-          text-align: center;
-          background-color: #312E92;
-          border-radius: 10px;
-          color: white;
-          padding-top: 1px;
-          padding-bottom: 1px;
-      }
+    }
+
+    .dropdown_content a:hover {
+        background-color: #ddd
+    }
+
+    .showm {
+        display: flex;
+    }
+
+    .mobile_page_title {
+        max-width: 80%;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        background-color: #312E92;
+        border-radius: 10px;
+        color: white;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
 
 }

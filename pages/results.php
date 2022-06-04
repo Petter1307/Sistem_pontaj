@@ -60,22 +60,41 @@ if (isset($_POST['submit'])) {
     // }
 
     //insertPRezenta($id_student, $saptamana, $an, $spec, $grupa)
-    if (isset($_GET['insert'])) {
-        $prof->insertPRezenta($id_insert, $saptamana, $an, $spec, $grupa);
-    }
+    // if (isset($_GET['insert'])) {
+    //     $prof->insertPRezenta($id_insert, $saptamana, $an, $spec, $grupa);
+    // }
     $results = $prof->getStudentList($an, $grupa, $spec);
     // echo var_dump($test);
     // echo $test[0]['id'];
     // echo "xXDD";
-    echo var_dump($results);
-    foreach ($results as $result) {
-        echo $result['first'] . " " . $result['last'] . "<a id = 'insert_a' href='results.php?insert=" . $result['id'] . "'>Insert</a>" . "</br>";
-    }
+    // foreach ($results as $result) {
+    //     echo $result['first'] . " " . $result['last'] . "<a id = 'insert_a' href='results.php?insert=" . $result['id'] . "'>Insert</a>" . "</br>";
+    // }
     if (isset($_SESSION['error'])) {
         $error = $_SESSION['error'];
         $_SESSION['error'] = null;
         echo "error from sesion: " . $error;
     }
+    echo "<div class='result_table'>";
+    echo "<table>";
+    echo "<thead>";
+    echo "<tr>";
+    echo "<th>Nume Prenume</th>";
+    echo "<th>Prezent</th>";
+    echo "<th>Absent</th>";
+    echo "</tr>";
+    echo "</thead>";
+    echo "<tbody>";
+    foreach ($results as $result) {
+        echo "<tr>";
+        echo "<td>" . $result['first'] . " " . $result['last'] . "</td>";
+        echo "<td class = 'linka'>Prezent</td>";
+        echo "<td class = 'linkb'>Absent</td>";
+        echo "</tr>";
+    }
+    echo "</tbody>";
+    echo "</table>";
+    echo "</div>";
 }
 // } else {
 //     header('location:prezenti.php?error=postfailed');
