@@ -8,8 +8,8 @@ if (isset($_POST['submit'])) {
     $repeatpwd = $_POST['repeatpwd'];
 
     include "../classes/dbh.classes.php";
-    include "../classes/changePass.class.php";
-    include "../classes/changePassContr.class.php";
+    include "../classes/auth/changepass/changePass.class.php";
+    include "../classes/auth/changepass/changePassContr.class.php";
 
     $tmp = new NewPassContr($id, $currentpwd, $newpwd, $repeatpwd);
     $tmp->changePwd();

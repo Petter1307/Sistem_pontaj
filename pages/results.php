@@ -90,6 +90,7 @@ if (isset($_POST['submit'])) {
         echo "<td>" . $result['first'] . " " . $result['last'] . "</td>";
         echo "<td class = 'linka'>Prezent</td>";
         echo "<td class = 'linkb'>Absent</td>";
+        echo "<td>  <button onclick=console.log(" . $result['last'] . ")>HEHE</button>    </td>";
         echo "</tr>";
     }
     echo "</tbody>";
@@ -102,6 +103,11 @@ if (isset($_POST['submit'])) {
 ?>
         </div>
     </div>
+    <script>
+    function showResult(result) {
+        console.log(result);
+    }
+    </script>
 </body>
 
 </html>

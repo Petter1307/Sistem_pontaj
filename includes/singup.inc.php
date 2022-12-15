@@ -13,8 +13,8 @@ if (isset($_POST["submit"])) {
         $user_type = "student";
     }
     include "../classes/dbh.classes.php";
-    include "../classes/singup.classes.php";
-    include "../classes/singupContr.classes.php";
+    include "../classes/auth/register/singup.classes.php";
+    include "../classes/auth/register/singupContr.classes.php";
 
     $singup = new SingupContr($uid, $email, $first_name, $last_name, $pwd, $pwdRepeat, $user_type);
 
